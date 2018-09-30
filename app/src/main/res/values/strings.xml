@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">CarClient</string>
+    <string name="name">驾驶员\n001</string>
+    <string-array name="street">
+        <item>关山大道</item>
+        <item>光谷大道</item>
+        <item>武珞路</item>
+        <item>民族大道</item>
+        <item>珞瑜东路</item>
+    </string-array>
+    <string name="filter_vcode">0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+</resources>

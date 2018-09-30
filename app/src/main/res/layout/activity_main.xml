@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="194dp"
+        android:background="@color/white"
+        android:fitsSystemWindows="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="176dp"
+            android:background="@drawable/header"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="24dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="采集工作台"
+                    android:textColor="#fff"
+                    android:textSize="18sp" />
+
+                <CheckedTextView
+                    android:id="@+id/cb_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/check"
+                    android:checked="false" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/caiij_icon" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:id="@+id/ll_status_running"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1102号设备运行中"
+                        android:textColor="#fff"
+                        android:textSize="20sp" />
+
+                    <ProgressBar
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginLeft="10dp"
+                        android:indeterminate="true"
+                        android:indeterminateDrawable="@drawable/progress" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_status_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1102号设备异常"
+                        android:textColor="@color/color_54eef4"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginLeft="10dp"
+                        android:src="@mipmap/yic_icon" />
+                </LinearLayout>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/border"
+            android:elevation="1dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:showDividers="middle">
+
+            <CheckedTextView
+                android:id="@+id/tv_status"
+                style="@style/ModelFilterMenu"
+                android:background="@drawable/check_back_left"
+                android:checked="true"
+                android:drawableLeft="@mipmap/sxt_icon"
+
+                android:text="摄像头状态" />
+
+            <CheckedTextView
+                android:id="@+id/tv_street"
+                style="@style/ModelFilterMenu"
+                android:background="@drawable/check_back_right"
+                android:drawableLeft="@mipmap/weizhi_icon"
+                android:hint="太平桥路" />
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:background="@color/color_eaeaea">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <ScrollView
+            android:id="@+id/rv_status1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:paddingLeft="10dp">
+
+                    <LinearLayout
+                        android:id="@+id/ll_video_1"
+                        android:layout_width="200dp"
+                        android:layout_height="112dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@color/black"
+                        android:gravity="center">
+
+                        <VideoView
+                            android:id="@+id/video_view1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/ll_video_1"
+                        android:layout_toRightOf="@+id/ll_video_1"
+                        android:text="前摄像头"
+                        android:textColor="#333" />
+
+                    <TextView
+                        android:id="@+id/tv_status1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_name"
+                        android:layout_marginTop="10dp"
+                        android:layout_toRightOf="@+id/ll_video_1"
+                        android:text=""
+                        android:textColor="#333"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/white"
+                    android:paddingLeft="10dp">
+
+                    <LinearLayout
+                        android:id="@+id/ll_video_2"
+                        android:layout_width="200dp"
+                        android:layout_height="112dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@color/black"
+                        android:gravity="center">
+
+                        <VideoView
+                            android:id="@+id/video_view2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/tv_name2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/ll_video_2"
+                        android:layout_toRightOf="@+id/ll_video_2"
+                        android:text="中摄像头"
+                        android:textColor="#333" />
+
+                    <TextView
+                        android:id="@+id/tv_status2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_name2"
+                        android:layout_marginTop="10dp"
+                        android:layout_toRightOf="@+id/ll_video_2"
+                        android:text=""
+                        android:textColor="#333"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/white"
+                    android:paddingLeft="10dp">
+
+                    <LinearLayout
+                        android:id="@+id/ll_video_3"
+                        android:layout_width="200dp"
+                        android:layout_height="112dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@color/black"
+                        android:gravity="center">
+
+                        <VideoView
+                            android:id="@+id/video_view3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_name3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/ll_video_3"
+                        android:layout_toRightOf="@+id/ll_video_3"
+                        android:text="后摄像头"
+                        android:textColor="#333" />
+
+                    <TextView
+                        android:id="@+id/tv_status3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_name3"
+                        android:layout_marginTop="10dp"
+                        android:layout_toRightOf="@+id/ll_video_3"
+                        android:text=""
+                        android:textColor="#333"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_status"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+    </FrameLayout>
+
+
+</LinearLayout>
